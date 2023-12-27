@@ -5,6 +5,8 @@ import "../../styles/LoginSignup.css";
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
   const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = (evt) => {
@@ -25,12 +27,27 @@ export default function SignUp() {
         </Link>
         <div className="nav-links">
           <Link to="/auth/login">Login</Link>
-          {/* <Link to="/auth/signup">Sign Up</Link>
-          <Link to="/admin">Dashboard</Link> */}
         </div>
       </nav>
+      <body className="login-background">
     <section className="login-section">
       <form className="login-form" onSubmit={handleSubmit}>
+      <label className="login-label" htmlFor="fname">First Name: </label>
+        <input 
+          required
+          type="text"
+          name="fname"
+          value={fName}
+          onChange={(e) => setFName(e.target.value)}
+        />
+        <label className="login-label" htmlFor="lname">Last Name: </label>
+        <input 
+          required
+          type="text"
+          name="lname"
+          value={lName}
+          onChange={(e) => setLName(e.target.value)}
+        />
         <label className="login-label" htmlFor="email">Email: </label>
         <input 
           required
@@ -57,6 +74,7 @@ export default function SignUp() {
         </div>
       </div>
     </section>
+    </body>
     </>
   );
 }

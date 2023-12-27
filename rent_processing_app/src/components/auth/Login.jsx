@@ -34,6 +34,7 @@ export default function Login() {
           <Link to="/admin">Dashboard</Link> */}
         </div>
       </nav>
+      <body className="login-background">
     <section className="login-section">
       <form className="login-form" onSubmit={handleSubmit}>
         <label className="login-label" htmlFor="email">Email: </label>
@@ -62,6 +63,7 @@ export default function Login() {
         </div>
       </div>
     </section>
+    </body>
     </>
   );
 }

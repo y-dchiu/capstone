@@ -44,7 +44,8 @@ export default function LDashboard() {
           <Link to="/admin">Dashboard</Link> */}
         </div>
       </nav>
-    <section className="ldash-section">
+      <body className="ldash-background">
+      <section className="ldash-section">
       <h2>Landlord Dashboard</h2>
       {/* <button onClick={() => handleCounter(0)}>Units</button>
       <button onClick={() => handleCounter(1)}>Contracts</button>
@@ -74,7 +75,8 @@ export default function LDashboard() {
         </div>
         </div>
       </div>
-    </section>
+      </section>
+      </body>
     </>
   );
 }

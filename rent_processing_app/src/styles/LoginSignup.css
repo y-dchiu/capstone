@@ -1,12 +1,13 @@
 .login-section {
-    background: #B7B7A4;
+    background-color: rgba(190, 190, 190, 0.8);
     padding: 20px;
     margin: auto;
-    margin-top: 20px;
-    width: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
     color: #333;
+    width: 50%;
+    max-width: 750px;
+    transform: translateY(-80px);
   }
   
 .login-form {
@@ -42,12 +43,6 @@
     text-decoration: underline;
   }
 
-  @media (max-width: 768px) {
-    .login-section {
-      width: 80%;
-    }
-  }
-
   .login-div > div {
     text-align: center;
     margin-top: 20px;
@@ -71,4 +66,16 @@
   .login-button:focus {
     outline: none;
     box-shadow: 0 0 3px #2C3639;
+  }
+
+  .login-background {
+    background-image: url('https://free4kwallpapers.com/uploads/originals/2016/02/15/abu-dhabi-trip-picture-from-friends-apartment-complex-wallpaper.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    margin: 0;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
   }
