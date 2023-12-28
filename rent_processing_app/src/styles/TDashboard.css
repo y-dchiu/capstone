@@ -1,21 +1,104 @@
 .tdash-modal {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  /* align-items: center; */
   padding: 5px;
-  height: 80vh;
-  border: 1px solid blue;
+  height: 60vh;
+  /* border: 1px solid blue; */
 }
 
 .tdash-left {
   margin: 5px;
   padding: 5px;
   width: 60%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  flex: 1;
+  /* background: #B7B7A4; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  border-radius: 8px;
 }
 
+.tdash-left > table {
+  width: auto;
+  margin: auto;
+}
+
+.tdash-left > h3 {
+  align-self: flex-start;
+}
+
+
 .tdash-right {
+  text-align: center;
+  align-items: center;
   margin: 5px;
   padding: 5px;
   width: 40%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .tdash-modal {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+.tdash-header {
+  position: sticky;
+  top: 0;
+  background-color: #2C3639;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.tdash-header h1 {
+  margin: 0;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: white;
+}
+
+.tdash-section {
+      padding: 20px;
+      margin: auto;
+      width: 80%; 
+}
+
+    .tdash-button {
+      background-color: #3F4E4F;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .tdash-button:hover {
+      background-color: #2C3639;
+    }
+    
+    .tdash-button:focus {
+      outline: none;
+      box-shadow: 0 0 3px #2C3639;
+    }
+
+.tdash-background {
+  background-image: url('https://free4kwallpapers.com/uploads/originals/2016/02/15/abu-dhabi-trip-picture-from-friends-apartment-complex-wallpaper.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat; 
+  height: 100vh; 
+  margin: 0;
 }

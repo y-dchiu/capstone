@@ -40,8 +40,6 @@ export default function LDashboard() {
         </Link>
         <div className="nav-links">
           <Link to="/auth/login">Login</Link>
-          {/* <Link to="/auth/signup">Sign Up</Link>
-          <Link to="/admin">Dashboard</Link> */}
         </div>
       </nav>
       <body className="ldash-background">
