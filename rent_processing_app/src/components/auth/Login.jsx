@@ -21,9 +21,9 @@ export default function Login() {
       console.log("Login Error: ", err);
     }
   };
-      
+
   return (
-    <>      
+    <>
       <nav>
         <Link to="/" className="home-link">
           <h1>TenantTracker</h1>
@@ -34,36 +34,42 @@ export default function Login() {
           <Link to="/admin">Dashboard</Link> */}
         </div>
       </nav>
-      <body className="login-background">
-    <section className="login-section">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <label className="login-label" htmlFor="email">Email: </label>
-        <input 
-          required
-          type="text"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label className="login-label" htmlFor="password">Password: </label>
-        <input 
-          required
-          type="password"
-          name="password"
-          onChange={(e) => setPw(e.target.value)}
-        />
-        {errMsg && { errMessage: errMsg }}
-        <button className="login-button">Login</button>
-      </form>
+      <div className="login-background">
+        <section className="login-section">
+          <form className="login-form" onSubmit={handleSubmit}>
+            <label className="login-label" htmlFor="email">
+              Email:{" "}
+            </label>
+            <input
+              required
+              type="text"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label className="login-label" htmlFor="password">
+              Password:{" "}
+            </label>
+            <input
+              required
+              type="password"
+              name="password"
+              onChange={(e) => setPw(e.target.value)}
+            />
+            {errMsg && { errMessage: errMsg }}
+            <button className="login-button">Login</button>
+          </form>
 
-      <div className="login-div">
-        <div>New Here?</div>
-        <div>
-          <Link className="login-a" to="/auth/signup">SIGN UP</Link>
-        </div>
+          <div className="login-div">
+            <div>New Here?</div>
+            <div>
+              <Link className="login-a" to="/auth/signup">
+                SIGN UP
+              </Link>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-    </body>
     </>
   );
 }

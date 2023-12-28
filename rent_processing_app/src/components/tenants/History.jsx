@@ -88,8 +88,7 @@ export default function History() {
                           ? "sort-desc"
                           : "sort-asc"
                         : ""
-                    }
-                  >
+                    }>
                     <div className="th-wrapper">
                       {column.render("Header")}
                       <FontAwesomeIcon

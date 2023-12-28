@@ -18,7 +18,7 @@ export default function TDashboard() {
 
   return (
     <>
-    <nav>
+      <nav>
         <Link to="/" className="home-link">
           <h1>TenantTracker</h1>
         </Link>
@@ -26,39 +26,45 @@ export default function TDashboard() {
           <Link to="/auth/login">Login</Link>
         </div>
       </nav>
-      <body className="tdash-background">
-    <section className="tdash-section">
-      <h2>Tenant Dashboard</h2>
-      {/* <button onClick={() => handleTabClick('accountOverview')} className="tdash-button">Account Overview</button>
+      <div className="tdash-background">
+        <section className="tdash-section">
+          <h2>Tenant Dashboard</h2>
+          {/* <button onClick={() => handleTabClick('accountOverview')} className="tdash-button">Account Overview</button>
       <button onClick={() => handleTabClick('contract')} className="tdash-button">Contract</button>
       <button onClick={() => handleTabClick('history')} className="tdash-button">History</button> */}
-      <button onClick={() => setCounter(0)} className="tdash-button">Account Overview</button>
-      <button onClick={() => setCounter(1)} className="tdash-button">Contract</button>
-      <button onClick={() => setCounter(2)} className="tdash-button">History</button>
+          <button onClick={() => setCounter(0)} className="tdash-button">
+            Account Overview
+          </button>
+          <button onClick={() => setCounter(1)} className="tdash-button">
+            Contract
+          </button>
+          <button onClick={() => setCounter(2)} className="tdash-button">
+            History
+          </button>
 
-      <div className="tdash-modal">
-        <div className="tdash-left">
-          {counter === 0 && <AccountOverview tenant={tenant} />}
-          {counter === 1 && (
-            <Contract
-              contract={contract}
-              propertyInfo={propertyInfo}
-              landlord={landlord}
-            />
-          )}
-          {counter === 2 && <History />}
-          {/* {activeTab === 'accountOverview' && <AccountOverview getChildProps={getChildProps} />}
+          <div className="tdash-modal">
+            <div className="tdash-left">
+              {counter === 0 && <AccountOverview tenant={tenant} />}
+              {counter === 1 && (
+                <Contract
+                  contract={contract}
+                  propertyInfo={propertyInfo}
+                  landlord={landlord}
+                />
+              )}
+              {counter === 2 && <History />}
+              {/* {activeTab === 'accountOverview' && <AccountOverview getChildProps={getChildProps} />}
           {activeTab === 'contract' && <Contract getChildProps={getChildProps} />}
           {activeTab === 'history' && <History getChildProps={getChildProps} />} */}
-        </div>
-        <div className="tdash-right">
-          <div>
-          <PayBill contract={contract} />
+            </div>
+            <div className="tdash-right">
+              <div>
+                <PayBill contract={contract} />
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
-    </body>
     </>
   );
 }

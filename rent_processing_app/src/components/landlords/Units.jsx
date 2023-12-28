@@ -10,7 +10,7 @@ import "../../styles/LDashboard.css";
 4. Landlord should be able to sort the units by availability
 */
 
-export default function Units({getChildProps}) {
+export default function Units({ getChildProps }) {
   const [selectedUnit, setSelectedUnit] = useState(null);
   const [unitDetails, setUnitDetails] = useState(null);
 
@@ -27,33 +27,38 @@ export default function Units({getChildProps}) {
         accessor: "landlord_id",
         Cell: ({ value }) => {
           const Landlord = landlord.find((landlord) => landlord.id === value);
-          return Landlord ? `${Landlord.first_name} ${Landlord.last_name}` : "Unknown Landlord";
+          return Landlord
+            ? `${Landlord.first_name} ${Landlord.last_name}`
+            : "Unknown Landlord";
         },
       },
       {
         Header: "More Information",
         Cell: ({ row }) => (
-          <button onClick={() => handleUnitClick(row.original)} className="ldash-button">View Details</button>
+          <button
+            onClick={() => handleUnitClick(row.original)}
+            className="ldash-button">
+            View Details
+          </button>
         ),
       },
     ],
-    [] // Empty array as the dependency list since there are no external dependencies
+    []
   );
 
-  // console.log(typeof landlord);
-  // console.log(landlord);
-  
-
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data,
-  });
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({
+      columns,
+      data,
+    });
 
   useEffect(() => {
     // Update unit details when selectedUnit changes
     if (selectedUnit !== null && selectedUnit !== undefined) {
       // Find the selected unit details from the units array
-      const selectedUnitDetails = unit.find((unit) => unit.id === selectedUnit.id);
+      const selectedUnitDetails = unit.find(
+        (unit) => unit.id === selectedUnit.id
+      );
 
       // Update the state with the selected unit details
       setUnitDetails(selectedUnitDetails);
@@ -67,21 +72,23 @@ export default function Units({getChildProps}) {
         <h2>Unit Details</h2>
         <p>Unit ID: {unit.id}</p>
         <p>Availability: {String(unit.is_available)}</p>
-        <p>Landlord ID: {unit.landlord_id}</p></div>
-    )
+        <p>Landlord ID: {unit.landlord_id}</p>
+      </div>
+    );
     setSelectedUnit(unit);
   };
 
   return (
     <section className="container">
-      {/* <h3>Units</h3> */}
       <div>
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
                 ))}
               </tr>
             ))}
@@ -100,17 +107,6 @@ export default function Units({getChildProps}) {
           </tbody>
         </table>
       </div>
-
-      {/* {selectedUnit !== null && unitDetails && (
-        <div>
-          <h2>Unit Details</h2>
-          <p>Unit ID: {unitDetails?.id}</p>
-          <p>Availability: {String(unitDetails?.is_available)}</p>
-          <p>Landlord ID: {unitDetails?.landlord_id}</p>
-        </div>
-      )} */}
     </section>
   );
 }
-
-

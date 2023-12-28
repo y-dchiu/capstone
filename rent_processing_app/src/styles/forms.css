@@ -11,12 +11,12 @@
   align-items: center;
 }
 
-input[type='text'],
-  input[type='password'] {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
 
 .form-wrapper > label {
   display: flex;
@@ -39,7 +39,7 @@ input[type='text'],
 }
 
 .form-wrapper > button {
-  background-color: #3F4E4F;
+  background-color: #3f4e4f;
   color: white;
   border: none;
   padding: 10px 20px;

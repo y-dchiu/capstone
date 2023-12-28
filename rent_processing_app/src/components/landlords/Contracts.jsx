@@ -8,7 +8,7 @@ import "../../styles/LDashboard.css";
 2. Landlord should be able to see more information about each contract when clicked
 */
 
-export default function Contracts({getChildProps}) {
+export default function Contracts({ getChildProps }) {
   const [selectedContract, setSelectedContract] = useState(null);
   const [contractDetails, setContractDetails] = useState(null);
 
@@ -23,28 +23,37 @@ export default function Contracts({getChildProps}) {
         Header: "Tenant Name",
         accessor: "tenant_id",
         Cell: ({ value }) => {
-        const tenant = tenants.find(tenant => tenant.id === value);
-        return tenant ? `${tenant.first_name} ${tenant.last_name}` : "Unknown Tenant";
-      },
+          const tenant = tenants.find((tenant) => tenant.id === value);
+          return tenant
+            ? `${tenant.first_name} ${tenant.last_name}`
+            : "Unknown Tenant";
+        },
       },
       {
         Header: "More Information",
         Cell: ({ row }) => (
-          <button onClick={() => handleContractClick(row.original)} className="ldash-button">View Details</button>
-          ),
+          <button
+            onClick={() => handleContractClick(row.original)}
+            className="ldash-button">
+            View Details
+          </button>
+        ),
       },
     ],
     []
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data,
-  });
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({
+      columns,
+      data,
+    });
 
   useEffect(() => {
     if (selectedContract !== null && selectedContract !== undefined) {
-      const selectedContractDetails = contracts.find(contract => contract.id === selectedContract.id);
+      const selectedContractDetails = contracts.find(
+        (contract) => contract.id === selectedContract.id
+      );
       setContractDetails(selectedContractDetails);
     }
   }, [selectedContract]);
@@ -53,19 +62,18 @@ export default function Contracts({getChildProps}) {
     // console.log("Selected Contract:", contract);
     getChildProps(
       <div>
-          <h2>Contract Details</h2>
-          <p>Contract ID: {contract.id}</p>
-          <p>Unit ID: {contract.unit_id}</p>
-          <p>Monthly Rent: {contract.monthly_rent}</p>
-          <p>Lease Start: {contract.lease_starting_from}</p>
-          <p>Lease End: {contract.lease_ending_on}</p>
-          <p>Tenant ID: {contract.tenant_id}</p>
-          <p>Landlord ID: {contract.landlord_id}</p>
-        </div>
-    )
+        <h2>Contract Details</h2>
+        <p>Contract ID: {contract.id}</p>
+        <p>Unit ID: {contract.unit_id}</p>
+        <p>Monthly Rent: {contract.monthly_rent}</p>
+        <p>Lease Start: {contract.lease_starting_from}</p>
+        <p>Lease End: {contract.lease_ending_on}</p>
+        <p>Tenant ID: {contract.tenant_id}</p>
+        <p>Landlord ID: {contract.landlord_id}</p>
+      </div>
+    );
     setSelectedContract(contract);
   };
-  
 
   return (
     <section className="container">
@@ -76,7 +84,9 @@ export default function Contracts({getChildProps}) {
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
                 ))}
               </tr>
             ))}

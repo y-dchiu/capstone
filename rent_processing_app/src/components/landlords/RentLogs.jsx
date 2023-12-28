@@ -8,8 +8,7 @@ import "../../styles/LDashboard.css";
 2. Landlord should be able to see what rent payments are on-time and what payments are late
 */
 
-
-export default function RentLogs({getChildProps}) {
+export default function RentLogs({ getChildProps }) {
   const [selectedLog, setSelectedLog] = useState(null);
   const [logDetails, setLogDetails] = useState(null);
 
@@ -35,17 +34,22 @@ export default function RentLogs({getChildProps}) {
       {
         Header: "More Information",
         Cell: ({ row }) => (
-          <button onClick={() => handleLogClick(row.original)} className="ldash-button">View Details</button>
+          <button
+            onClick={() => handleLogClick(row.original)}
+            className="ldash-button">
+            View Details
+          </button>
         ),
       },
     ],
     []
   );
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data,
-  });
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({
+      columns,
+      data,
+    });
 
   useEffect(() => {
     if (selectedLog) {
@@ -56,16 +60,24 @@ export default function RentLogs({getChildProps}) {
   const handleLogClick = (log) => {
     getChildProps(
       <div>
-          <h2>Payment Log Details</h2>
-          <p>Payment ID: {log.id}</p>
-          <p>Contract ID: {log.contract_id}</p>
-          <p>Amount Paid: {log.amount_paid}</p>
-          <p>Payment Date: {log.payment_date}</p>
-          <p>Payment Medium: {log.payment_medium}</p>
-          <p>{log.check_number ? (`Check Number: ${log.check_number}`) : ("Check Number: N/A")}</p>
-          <p>{log.online_transaction_number ? (`Online Transaction Number: ${log.online_transaction_number}`) : ("Online Transaction Number: N/A")}</p>
-        </div>
-    )
+        <h2>Payment Log Details</h2>
+        <p>Payment ID: {log.id}</p>
+        <p>Contract ID: {log.contract_id}</p>
+        <p>Amount Paid: {log.amount_paid}</p>
+        <p>Payment Date: {log.payment_date}</p>
+        <p>Payment Medium: {log.payment_medium}</p>
+        <p>
+          {log.check_number
+            ? `Check Number: ${log.check_number}`
+            : "Check Number: N/A"}
+        </p>
+        <p>
+          {log.online_transaction_number
+            ? `Online Transaction Number: ${log.online_transaction_number}`
+            : "Online Transaction Number: N/A"}
+        </p>
+      </div>
+    );
     setSelectedLog(log);
   };
 
@@ -75,20 +87,22 @@ export default function RentLogs({getChildProps}) {
       <div>
         <table {...getTableProps()}>
           <thead>
-            {headerGroups.map(headerGroup => (
+            {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
                 ))}
               </tr>
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map(row => {
+            {rows.map((row) => {
               prepareRow(row);
               return (
                 <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => (
+                  {row.cells.map((cell) => (
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   ))}
                 </tr>
